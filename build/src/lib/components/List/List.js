@@ -12,14 +12,6 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _color = require('color');
-
-var _color2 = _interopRequireDefault(_color);
-
-var _themeAware = require('../../HOC/themeAware');
-
-var _themeAware2 = _interopRequireDefault(_themeAware);
-
 var _localeAware = require('../../HOC/localeAware');
 
 var _localeAware2 = _interopRequireDefault(_localeAware);
@@ -27,10 +19,6 @@ var _localeAware2 = _interopRequireDefault(_localeAware);
 var _I18nService = require('./../../services/I18nService');
 
 var _I18nService2 = _interopRequireDefault(_I18nService);
-
-var _LocaleService = require('./../../services/LocaleService');
-
-var _LocaleService2 = _interopRequireDefault(_LocaleService);
 
 var _template = require('../../utils/template');
 
@@ -47,15 +35,6 @@ _I18nService2.default.registerTranslations({
   }
 });
 
-const style = ({ vars }) => {
-  return {
-    list: {
-      // color: color(vars.colors.secondaryColor || 'orange').lighten(0.5).hex()
-      color: vars.dir === 'ltr' ? 'green' : 'red'
-    }
-  };
-};
-
 class List extends _react2.default.PureComponent {
   render() {
     if (process.env.NODE_ENV !== 'production') {
@@ -68,7 +47,7 @@ class List extends _react2.default.PureComponent {
       this.props.translations.list(),
       _react2.default.createElement(
         'ul',
-        { className: this.props.classes.list },
+        null,
         this.props.items.map(item => _react2.default.createElement(
           'li',
           { key: item },
@@ -84,8 +63,7 @@ List.defaultProps = {
 };
 
 List.propTypes = {
-  items: _propTypes2.default.array,
-  classes: _propTypes2.default.object
+  items: _propTypes2.default.array
 };
 
-exports.default = (0, _themeAware2.default)({ style })((0, _localeAware2.default)(List));
+exports.default = (0, _localeAware2.default)(List);

@@ -3,18 +3,11 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import {
   // onScreenConsole,
-  localeAware,
-  theming,
-  theme,
-  themeVars
+  localeAware
 } from 'dev-box-ui';
 import App from './app';
 
-const currentTheme = theme(themeVars);
-
 // onScreenConsole();
-
-const { ThemeProvider } = theming;
 
 let Demo = class Demo extends React.Component {
   render() {
@@ -24,9 +17,7 @@ let Demo = class Demo extends React.Component {
     }
     const { locale: { dir } } = this.props;
     return (
-      <ThemeProvider theme={currentTheme[dir]}>
-        <App />
-      </ThemeProvider>
+      <App />
     );
   }
 };

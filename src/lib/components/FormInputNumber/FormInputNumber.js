@@ -1,16 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
-import themeAware from '../../HOC/themeAware';
 import localeAware from '../../HOC/localeAware';
-
-const style = ({ vars }) => {
-  return {
-    hello: {
-      color: vars.colors.primaryColor || 'orange'
-    }
-  };
-};
 
 class FormInputNumber extends React.PureComponent {
   constructor(props) {
@@ -29,24 +19,12 @@ class FormInputNumber extends React.PureComponent {
 
   render() {
     const {
-      theme, classes,
-      inputExtraClasses = [],
-      wrapperExtraClasses = [],
       name
     } = this.props;
 
-    const wrapperClassNames = cn({
-      ...wrapperExtraClasses.reduce((acc, name) => ({ ...acc, [name]: true }), {})
-    });
-
-    const inputClassNames = cn({
-      [theme.common.formInput]: true,
-      ...inputExtraClasses.reduce((acc, name) => ({ ...acc, [name]: true }), {})
-    });
-
     return (
-      <div className={ wrapperClassNames }>
-        <input className={ inputClassNames }
+      <div>
+        <input
           name={name}
           type="text"
           value={this.state.value}
@@ -59,12 +37,8 @@ class FormInputNumber extends React.PureComponent {
 
 FormInputNumber.propTypes = {
   value: PropTypes.string,
-  theme: PropTypes.object,
-  name: PropTypes.string.isRequired,
-  classes: PropTypes.object,
-  inputExtraClasses: PropTypes.arrayOf(PropTypes.string),
-  wrapperExtraClasses: PropTypes.arrayOf(PropTypes.string),
+  name: PropTypes.string.isRequired
 };
 
-export default themeAware({ style })(localeAware(FormInputNumber));
+export default localeAware(FormInputNumber);
 

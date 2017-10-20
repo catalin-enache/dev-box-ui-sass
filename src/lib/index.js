@@ -8,14 +8,6 @@ import i18nService from './services/I18nService';
 
 // HOC
 import localeAware from './HOC/localeAware';
-import themeAware from './HOC/themeAware';
-
-// Theme
-import theme from './styles/theme';
-import themeVars from './styles/themeVars';
-
-// Theming
-import { theming, createTheming } from './theming/theming';
 
 // Components
 import Hello from './components/Hello/Hello';
@@ -34,15 +26,6 @@ export {
 
   // HOC
   localeAware,
-  themeAware,
-
-  // Theme
-  themeVars,
-  theme,
-
-  // Theming
-  theming,
-  createTheming,
 
   // Components
   Hello,
