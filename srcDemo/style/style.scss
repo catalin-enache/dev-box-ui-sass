@@ -1,0 +1,20 @@
+
+$primaryColor: blue;
+$secondaryColor: maroon;
+
+$dir: ltr;
+html[dir=#{$dir}] {
+  @import "../../src/style/setup";
+  @import "../../src/style/components/one";
+}
+
+
+$dir: rtl;
+html[dir=#{$dir}] {
+  @import "../../src/style/setup";
+  @import "../../src/style/components/one";
+}
+
+
+
+

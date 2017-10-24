@@ -1,0 +1,13 @@
+html[dir=ltr] .one {
+  color: green;
+  background-color: orange;
+  float: left; }
+  html[dir=ltr] .one li {
+    font-weight: bold; }
+
+html[dir=rtl] .one {
+  color: green;
+  background-color: orange;
+  float: right; }
+  html[dir=rtl] .one li {
+    font-style: italic; }

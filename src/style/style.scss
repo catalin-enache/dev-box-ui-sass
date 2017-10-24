@@ -1,0 +1,12 @@
+
+$dir: ltr;
+html[dir=#{$dir}] {
+  @import "setup";
+  @import "../style/components/index";
+}
+
+$dir: rtl;
+html[dir=#{$dir}] {
+  @import "setup";
+  @import "../style/components/index";
+}
