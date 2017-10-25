@@ -9,10 +9,10 @@ import template from '../../utils/template';
 
 i18nService.registerTranslations({
   en: {
-    'Hello': template`Hello ${'age'} ${'name'}`
+    Hello: template`Hello ${'age'} ${'name'}`
   },
   sp: {
-    'Hello': template`Hola ${'age'} ${'name'}`
+    Hello: template`Hola ${'age'} ${'name'}`
   }
 });
 

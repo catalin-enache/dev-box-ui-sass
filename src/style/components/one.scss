@@ -1,6 +1,6 @@
 .one {
-  color: $primaryColor;
-  background-color: $secondaryColor;
+  color: $primary-color;
+  background-color: $secondary-color;
   float: $start;
   @include if-ltr {
 		li {

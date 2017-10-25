@@ -12,6 +12,7 @@ import localeAware from './HOC/localeAware';
 // Components
 import Hello from './components/Hello/Hello';
 import List from './components/List/List';
+import FormInput from './components/FormInput/FormInput';
 import FormInputNumber from './components/FormInputNumber/FormInputNumber';
 
 
@@ -30,5 +31,6 @@ export {
   // Components
   Hello,
   List,
+  FormInput,
   FormInputNumber
 };

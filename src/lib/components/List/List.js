@@ -6,10 +6,10 @@ import template from '../../utils/template';
 
 i18nService.registerTranslations({
   en: {
-    'list': template`list`
+    list: template`list`
   },
   sp: {
-    'list': template`lista`
+    list: template`lista`
   }
 });
 
@@ -35,7 +35,8 @@ List.defaultProps = {
 };
 
 List.propTypes = {
-  items: PropTypes.array
+  items: PropTypes.array,
+  translations: PropTypes.object
 };
 
 export default localeAware(List);
