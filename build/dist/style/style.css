@@ -1,13 +1,71 @@
-html[dir=ltr] .one {
-  color: green;
-  background-color: orange;
-  float: left; }
-  html[dir=ltr] .one li {
-    font-weight: bold; }
+html[dir=ltr] .dbu-form-input {
+  display: inline;
+  width: 100%;
+  height: 26px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #444;
+  background-color: #fff;
+  border-style: solid;
+  border-color: #ededed;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  font-size: 16px;
+  font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-kerning: normal;
+  box-sizing: border-box;
+  box-shadow: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+  html[dir=ltr] .dbu-form-input:focus {
+    color: #333;
+    background-color: #fff;
+    border-color: #dcdcdc;
+    outline: none; }
 
-html[dir=rtl] .one {
-  color: green;
-  background-color: orange;
-  float: right; }
-  html[dir=rtl] .one li {
-    font-style: italic; }
+html[dir=rtl] .dbu-form-input {
+  display: inline;
+  width: 100%;
+  height: 26px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 5px;
+  padding-left: 5px;
+  color: #444;
+  background-color: #fff;
+  border-style: solid;
+  border-color: #ededed;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+  border-left-width: 1px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  font-size: 16px;
+  font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-kerning: normal;
+  box-sizing: border-box;
+  box-shadow: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+  html[dir=rtl] .dbu-form-input:focus {
+    color: #333;
+    background-color: #fff;
+    border-color: #dcdcdc;
+    outline: none; }

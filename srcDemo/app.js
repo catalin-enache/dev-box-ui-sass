@@ -33,7 +33,7 @@ class App extends React.Component {
     }
 
     return (
-      <div className="one">
+      <div>
         <div>
           {links}
         </div>

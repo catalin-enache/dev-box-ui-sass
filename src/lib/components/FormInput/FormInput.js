@@ -1,41 +1,51 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import localeAware from '../../HOC/localeAware';
+import cn from 'classnames';
 
 class FormInput extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      value: props.value
+      value: props.value.toString()
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(evt) {
+  componentWillReceiveProps(nextProps) {
     this.setState({
-      value: evt.target.value
+      value: (nextProps.value || '').toString()
+    });
+  }
+
+  handleChange(evt) {
+    const { value } = evt.target;
+    this.setState({
+      value
+    }, () => {
+      this.props.onChange(value);
     });
   }
 
   render() {
-
-    const { locale, translations, ...rest } = this.props;
-
+    const inputClassNames = cn({
+      'dbu-patch': true,
+      'dbu-form-input': true
+    });
     return (
-      <div>
-        <input
-          {...rest}
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-      </div>
+      <input
+        className={inputClassNames}
+        {...this.props}
+        value={this.state.value}
+        onChange={this.handleChange}
+      />
     );
   }
 }
 
 FormInput.defaultProps = {
   type: 'text',
-  value: ''
+  value: '',
+  onChange: () => {}
 };
 
 FormInput.propTypes = {
@@ -44,9 +54,8 @@ FormInput.propTypes = {
     PropTypes.string,
     PropTypes.number
   ]),
-  locale: PropTypes.object,
-  translations: PropTypes.object
+  onChange: PropTypes.func
 };
 
-export default localeAware(FormInput);
+export default FormInput;
 

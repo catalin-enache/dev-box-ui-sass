@@ -5,10 +5,28 @@ import {
 
 
 class FormInputScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputValue: 6
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(inputValue) {
+    this.setState({
+      inputValue
+    });
+  }
+
   render() {
     return (
       <div>
-        <FormInput />
+        <FormInput
+          value={this.state.inputValue}
+          onChange={this.handleChange}
+        />
+        <p>{this.state.inputValue}{'\u00A0'}</p>
       </div>
     );
   }
