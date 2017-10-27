@@ -24,7 +24,6 @@ html[dir=ltr] .dbu-form-input {
   font-style: normal;
   font-kerning: normal;
   box-sizing: border-box;
-  box-shadow: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none; }
@@ -32,6 +31,16 @@ html[dir=ltr] .dbu-form-input {
     color: #333;
     background-color: #fff;
     border-color: #dcdcdc;
+    outline: none; }
+
+html[dir=ltr] .dbu-form-input.dbu-inverse {
+  color: #ddd;
+  background-color: #444;
+  border-color: #666; }
+  html[dir=ltr] .dbu-form-input.dbu-inverse:focus {
+    color: #eee;
+    background-color: #393939;
+    border-color: #777;
     outline: none; }
 
 html[dir=rtl] .dbu-form-input {
@@ -60,7 +69,6 @@ html[dir=rtl] .dbu-form-input {
   font-style: normal;
   font-kerning: normal;
   box-sizing: border-box;
-  box-shadow: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none; }
@@ -68,4 +76,14 @@ html[dir=rtl] .dbu-form-input {
     color: #333;
     background-color: #fff;
     border-color: #dcdcdc;
+    outline: none; }
+
+html[dir=rtl] .dbu-form-input.dbu-inverse {
+  color: #ddd;
+  background-color: #444;
+  border-color: #666; }
+  html[dir=rtl] .dbu-form-input.dbu-inverse:focus {
+    color: #eee;
+    background-color: #393939;
+    border-color: #777;
     outline: none; }

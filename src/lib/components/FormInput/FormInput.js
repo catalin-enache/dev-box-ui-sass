@@ -27,14 +27,16 @@ class FormInput extends React.PureComponent {
   }
 
   render() {
+    const { inverse, ...rest } = this.props;
     const inputClassNames = cn({
-      'dbu-patch': true,
-      'dbu-form-input': true
+      'dbu-form-input': true,
+      'dbu-inverse': inverse,
+      'dbu-patch': true
     });
     return (
       <input
         className={inputClassNames}
-        {...this.props}
+        {...rest}
         value={this.state.value}
         onChange={this.handleChange}
       />
@@ -54,7 +56,8 @@ FormInput.propTypes = {
     PropTypes.string,
     PropTypes.number
   ]),
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  inverse: PropTypes.bool
 };
 
 export default FormInput;

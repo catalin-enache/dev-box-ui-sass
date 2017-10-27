@@ -2,9 +2,6 @@
 
 // ===================== Colors ============================
 
-$primary-color: green !default;
-$secondary-color: orange !default;
-
 $form-input-text-color: #444;
 $form-input-background-color: #fff;
 $form-input-border-color: #ededed;
@@ -13,6 +10,15 @@ $form-input-focus-text-color: #333;
 $form-input-focus-background-color: #fff;
 $form-input-focus-border-color: #dcdcdc;
 
+// ===================== Colors Inverse ============================
+
+$form-input-text-color-inverse: #ddd;
+$form-input-background-color-inverse: #444;
+$form-input-border-color-inverse: #666;
+
+$form-input-focus-text-color-inverse: #eee;
+$form-input-focus-background-color-inverse: #393939;
+$form-input-focus-border-color-inverse: #777;
 
 // ===================== Dimensions ============================
 

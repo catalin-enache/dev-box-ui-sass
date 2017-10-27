@@ -36,3 +36,15 @@
     outline: none;
   }
 }
+
+.dbu-form-input.dbu-inverse {
+  color: $form-input-text-color-inverse;
+  background-color: $form-input-background-color-inverse;
+  border-color: $form-input-border-color-inverse;
+
+  &:focus {
+    color: $form-input-focus-text-color-inverse;
+    background-color: $form-input-focus-background-color-inverse;
+    border-color: $form-input-focus-border-color-inverse;
+  }
+}
