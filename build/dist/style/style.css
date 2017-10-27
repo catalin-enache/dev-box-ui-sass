@@ -40,8 +40,35 @@ html[dir=ltr] .dbu-form-input.dbu-inverse {
   html[dir=ltr] .dbu-form-input.dbu-inverse:focus {
     color: #eee;
     background-color: #393939;
-    border-color: #777;
-    outline: none; }
+    border-color: #777; }
+
+html[dir=ltr] .dbu-form-input.dbu-warning {
+  color: darkorange;
+  border-color: darkorange; }
+  html[dir=ltr] .dbu-form-input.dbu-warning:focus {
+    color: darkorange;
+    border-color: darkorange; }
+
+html[dir=ltr] .dbu-form-input.dbu-warning.dbu-inverse {
+  color: darkorange;
+  border-color: darkorange; }
+  html[dir=ltr] .dbu-form-input.dbu-warning.dbu-inverse:focus {
+    color: darkorange;
+    border-color: darkorange; }
+
+html[dir=ltr] .dbu-form-input.dbu-error {
+  color: #af0000;
+  border-color: #af0000; }
+  html[dir=ltr] .dbu-form-input.dbu-error:focus {
+    color: #af0000;
+    border-color: #af0000; }
+
+html[dir=ltr] .dbu-form-input.dbu-error.dbu-inverse {
+  color: #af0000;
+  border-color: #af0000; }
+  html[dir=ltr] .dbu-form-input.dbu-error.dbu-inverse:focus {
+    color: #af0000;
+    border-color: #af0000; }
 
 html[dir=rtl] .dbu-form-input {
   display: inline;
@@ -85,5 +112,32 @@ html[dir=rtl] .dbu-form-input.dbu-inverse {
   html[dir=rtl] .dbu-form-input.dbu-inverse:focus {
     color: #eee;
     background-color: #393939;
-    border-color: #777;
-    outline: none; }
+    border-color: #777; }
+
+html[dir=rtl] .dbu-form-input.dbu-warning {
+  color: darkorange;
+  border-color: darkorange; }
+  html[dir=rtl] .dbu-form-input.dbu-warning:focus {
+    color: darkorange;
+    border-color: darkorange; }
+
+html[dir=rtl] .dbu-form-input.dbu-warning.dbu-inverse {
+  color: darkorange;
+  border-color: darkorange; }
+  html[dir=rtl] .dbu-form-input.dbu-warning.dbu-inverse:focus {
+    color: darkorange;
+    border-color: darkorange; }
+
+html[dir=rtl] .dbu-form-input.dbu-error {
+  color: #af0000;
+  border-color: #af0000; }
+  html[dir=rtl] .dbu-form-input.dbu-error:focus {
+    color: #af0000;
+    border-color: #af0000; }
+
+html[dir=rtl] .dbu-form-input.dbu-error.dbu-inverse {
+  color: #af0000;
+  border-color: #af0000; }
+  html[dir=rtl] .dbu-form-input.dbu-error.dbu-inverse:focus {
+    color: #af0000;
+    border-color: #af0000; }

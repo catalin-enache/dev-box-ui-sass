@@ -25,7 +25,9 @@ class FormInputScreen extends React.Component {
         <FormInput
           value={this.state.inputValue}
           onChange={this.handleChange}
-          inverse={false}
+          inverse={true}
+          warning={true}
+          error={true}
         />
         <p>{this.state.inputValue}{'\u00A0'}</p>
       </div>

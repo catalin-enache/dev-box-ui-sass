@@ -48,3 +48,43 @@
     border-color: $form-input-focus-border-color-inverse;
   }
 }
+
+.dbu-form-input.dbu-warning {
+  color: $warning-text-color;
+  border-color: $warning-border-color;
+
+  &:focus {
+    color: $warning-text-color;
+    border-color: $warning-border-color;
+  }
+}
+
+.dbu-form-input.dbu-warning.dbu-inverse {
+  color: $warning-text-color-inverse;
+  border-color: $warning-border-color-inverse;
+
+  &:focus {
+    color: $warning-text-color-inverse;
+    border-color: $warning-border-color-inverse;
+  }
+}
+
+.dbu-form-input.dbu-error {
+  color: $error-text-color;
+  border-color: $error-border-color;
+
+  &:focus {
+    color: $error-text-color;
+    border-color: $error-border-color;
+  }
+}
+
+.dbu-form-input.dbu-error.dbu-inverse {
+  color: $error-text-color-inverse;
+  border-color: $error-border-color-inverse;
+
+  &:focus {
+    color: $error-text-color-inverse;
+    border-color: $error-border-color-inverse;
+  }
+}

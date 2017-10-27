@@ -1,6 +1,10 @@
 
 
 // ===================== Colors ============================
+$warning-text-color: darkorange;
+$warning-border-color: darkorange;
+$error-text-color: #af0000;
+$error-border-color: #af0000;
 
 $form-input-text-color: #444;
 $form-input-background-color: #fff;
@@ -11,6 +15,10 @@ $form-input-focus-background-color: #fff;
 $form-input-focus-border-color: #dcdcdc;
 
 // ===================== Colors Inverse ============================
+$warning-text-color-inverse: darkorange;
+$warning-border-color-inverse: darkorange;
+$error-text-color-inverse: #af0000;
+$error-border-color-inverse: #af0000;
 
 $form-input-text-color-inverse: #ddd;
 $form-input-background-color-inverse: #444;
