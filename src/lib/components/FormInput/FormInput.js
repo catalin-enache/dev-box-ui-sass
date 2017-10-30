@@ -37,6 +37,7 @@ class FormInput extends React.PureComponent {
     });
     return (
       <input
+        data-component-id="FormInput"
         className={inputClassNames}
         {...rest}
         value={this.state.value}
