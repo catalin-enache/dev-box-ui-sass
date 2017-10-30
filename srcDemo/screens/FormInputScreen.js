@@ -25,7 +25,6 @@ class FormInputScreen extends React.Component {
         <FormInput
           value={this.state.inputValue}
           onChange={this.handleChange}
-          inverse={true}
           warning={true}
           error={true}
         />

@@ -37,18 +37,6 @@
   }
 }
 
-.dbu-form-input.dbu-inverse {
-  color: $form-input-text-color-inverse;
-  background-color: $form-input-background-color-inverse;
-  border-color: $form-input-border-color-inverse;
-
-  &:focus {
-    color: $form-input-focus-text-color-inverse;
-    background-color: $form-input-focus-background-color-inverse;
-    border-color: $form-input-focus-border-color-inverse;
-  }
-}
-
 .dbu-form-input.dbu-warning {
   color: $warning-text-color;
   border-color: $warning-border-color;
@@ -56,16 +44,6 @@
   &:focus {
     color: $warning-text-color;
     border-color: $warning-border-color;
-  }
-}
-
-.dbu-form-input.dbu-warning.dbu-inverse {
-  color: $warning-text-color-inverse;
-  border-color: $warning-border-color-inverse;
-
-  &:focus {
-    color: $warning-text-color-inverse;
-    border-color: $warning-border-color-inverse;
   }
 }
 
@@ -79,12 +57,3 @@
   }
 }
 
-.dbu-form-input.dbu-error.dbu-inverse {
-  color: $error-text-color-inverse;
-  border-color: $error-border-color-inverse;
-
-  &:focus {
-    color: $error-text-color-inverse;
-    border-color: $error-border-color-inverse;
-  }
-}
