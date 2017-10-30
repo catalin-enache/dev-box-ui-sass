@@ -6,7 +6,7 @@ html[dir=ltr] .dbu-form-input {
   padding-bottom: 3px;
   padding-left: 5px;
   padding-right: 5px;
-  color: #444;
+  color: #333;
   background-color: #fff;
   border-style: solid;
   border-color: #ededed;
@@ -32,19 +32,16 @@ html[dir=ltr] .dbu-form-input {
     background-color: #fff;
     border-color: #dcdcdc;
     outline: none; }
-
-html[dir=ltr] .dbu-form-input.dbu-warning {
-  color: darkorange;
-  border-color: darkorange; }
-  html[dir=ltr] .dbu-form-input.dbu-warning:focus {
+  html[dir=ltr] .dbu-form-input:disabled {
+    cursor: not-allowed;
+    opacity: .5; }
+  html[dir=ltr] .dbu-form-input.dbu-warning {
     color: darkorange;
+    background-color: #fff;
     border-color: darkorange; }
-
-html[dir=ltr] .dbu-form-input.dbu-error {
-  color: #af0000;
-  border-color: #af0000; }
-  html[dir=ltr] .dbu-form-input.dbu-error:focus {
+  html[dir=ltr] .dbu-form-input.dbu-error {
     color: #af0000;
+    background-color: #fff;
     border-color: #af0000; }
 
 html[dir=rtl] .dbu-form-input {
@@ -55,7 +52,7 @@ html[dir=rtl] .dbu-form-input {
   padding-bottom: 3px;
   padding-right: 5px;
   padding-left: 5px;
-  color: #444;
+  color: #333;
   background-color: #fff;
   border-style: solid;
   border-color: #ededed;
@@ -81,17 +78,14 @@ html[dir=rtl] .dbu-form-input {
     background-color: #fff;
     border-color: #dcdcdc;
     outline: none; }
-
-html[dir=rtl] .dbu-form-input.dbu-warning {
-  color: darkorange;
-  border-color: darkorange; }
-  html[dir=rtl] .dbu-form-input.dbu-warning:focus {
+  html[dir=rtl] .dbu-form-input:disabled {
+    cursor: not-allowed;
+    opacity: .5; }
+  html[dir=rtl] .dbu-form-input.dbu-warning {
     color: darkorange;
+    background-color: #fff;
     border-color: darkorange; }
-
-html[dir=rtl] .dbu-form-input.dbu-error {
-  color: #af0000;
-  border-color: #af0000; }
-  html[dir=rtl] .dbu-form-input.dbu-error:focus {
+  html[dir=rtl] .dbu-form-input.dbu-error {
     color: #af0000;
+    background-color: #fff;
     border-color: #af0000; }

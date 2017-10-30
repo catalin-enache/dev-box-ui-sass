@@ -27,11 +27,12 @@ class FormInput extends React.PureComponent {
   }
 
   render() {
-    const { warning, error, ...rest } = this.props;
+    const { hasWarning, hasError, ...rest } = this.props;
     const inputClassNames = cn({
       'dbu-form-input': true,
-      'dbu-warning': warning,
-      'dbu-error': error,
+      'dbu-warning': hasWarning,
+      'dbu-error': hasError,
+      'dbu-theme': true,
       'dbu-patch': true
     });
     return (
@@ -58,8 +59,8 @@ FormInput.propTypes = {
     PropTypes.number
   ]),
   onChange: PropTypes.func,
-  warning: PropTypes.bool,
-  error: PropTypes.bool,
+  hasWarning: PropTypes.bool,
+  hasError: PropTypes.bool,
 };
 
 export default FormInput;

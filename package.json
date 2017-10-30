@@ -75,6 +75,7 @@
     "serve": "http-server -a 0.0.0.0 -p 8001 -c-1",
     "eslint": "eslint src",
     "copy:style": "copyfiles src/style/* src/style/**/* build",
+    "build:developing": "npm run build:style && npm run build:dev-box-ui-no-deps:dist:dev && npm run build:demo",
     "build:style": "node-sass src/style/style.scss build/dist/style/style.css",
     "build:style:demo": "node-sass srcDemo/style/style.scss build/dist/style/style.css",
     "build:vendors:dev": "                                                      browserify                          -r react -r react-dom -r prop-types -r hoist-non-react-statics -r classnames                       -o vendors/js/vendors.js",

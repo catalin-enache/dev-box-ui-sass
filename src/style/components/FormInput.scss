@@ -35,25 +35,22 @@
     border-color: $form-input-focus-border-color;
     outline: none;
   }
-}
 
-.dbu-form-input.dbu-warning {
-  color: $warning-text-color;
-  border-color: $warning-border-color;
-
-  &:focus {
-    color: $warning-text-color;
-    border-color: $warning-border-color;
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .5;
   }
-}
 
-.dbu-form-input.dbu-error {
-  color: $error-text-color;
-  border-color: $error-border-color;
+  &.dbu-warning {
+    color: $form-input-warning-text-color;
+    background-color: $form-input-warning-background-color;
+    border-color: $form-input-warning-border-color;
+  }
 
-  &:focus {
-    color: $error-text-color;
-    border-color: $error-border-color;
+  &.dbu-error {
+    color: $form-input-error-text-color;
+    background-color: $form-input-error-background-color;
+    border-color: $form-input-error-border-color;
   }
 }
 
