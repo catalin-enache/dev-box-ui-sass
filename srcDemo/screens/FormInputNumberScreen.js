@@ -5,10 +5,30 @@ import {
 
 
 class FormInputNumberScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputValue: 7
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(inputValue) {
+    const valueToSendBack = Number(inputValue.toPrecision(4));
+    console.log('FormInputNumberScreen', { inputValue, valueToSendBack });
+    this.setState({
+      inputValue: valueToSendBack
+    });
+  }
+
   render() {
     return (
       <div>
-        <FormInputNumber />
+        <FormInputNumber
+          value={this.state.inputValue}
+          onChange={this.handleChange}
+        />
+        <p>{this.state.inputValue}{'\u00A0'}</p>
       </div>
     );
   }

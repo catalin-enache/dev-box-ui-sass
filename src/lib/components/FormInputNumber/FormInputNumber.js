@@ -1,44 +1,78 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import localeAware from '../../HOC/localeAware';
+import FormInput from '../FormInput/FormInput';
+import forceFloat from '../../utils/internals/forceFloat';
 
 class FormInputNumber extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      value: props.value || 0
+      value: props.value.toString()
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(evt) {
+  componentWillReceiveProps(nextProps) {
+    const receivedValue = nextProps.value.toString();
+    const internalValue = this.state.value;
+    const valueToStore = Number(internalValue) === Number(receivedValue) ? internalValue : receivedValue;
     this.setState({
-      value: evt.target.value
+      value: valueToStore
     });
   }
 
-  render() {
-    const {
-      name
-    } = this.props;
+  handleChange(value) {
+    const valueToUse = forceFloat(value);
 
+    this.setState({
+      value: valueToUse
+    }, () => {
+      this.forceUpdate();
+
+      const usedValue = this.state.value;
+      let valueToReport = usedValue;
+      const endsWithPoint = usedValue.endsWith('.');
+
+      if (endsWithPoint) {
+        valueToReport = valueToReport.substr(0, valueToReport.length - 1);
+      }
+
+      const valueAsNumber = Number(valueToReport);
+      const isNan = Number.isNaN(valueAsNumber);
+
+      if (isNan) {
+        return;
+      }
+
+      this.props.onChange(valueAsNumber);
+    });
+  }
+
+  get value() {
+    return this.state.value;
+  }
+
+  render() {
     return (
-      <div>
-        <input
-          name={name}
-          type="text"
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-      </div>
+      <FormInput
+        {...this.props}
+        type="text"
+        value={this.value}
+        onChange={this.handleChange}
+      />
     );
   }
 }
 
-FormInputNumber.propTypes = {
-  value: PropTypes.string,
-  name: PropTypes.string.isRequired
+FormInputNumber.defaultProps = {
+  value: 0,
+  onChange: () => {}
 };
 
-export default localeAware(FormInputNumber);
+FormInputNumber.propTypes = {
+  value: PropTypes.number,
+  onChange: PropTypes.func
+};
+
+export default FormInputNumber;
 
