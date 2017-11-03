@@ -1,4 +1,8 @@
-
+/**
+ *
+ * @param value String
+ * @returns String
+ */
 function forceFloat(value) {
   let valueToUse = value;
   const indexOfPoint = valueToUse.indexOf('.');

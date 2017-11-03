@@ -15,7 +15,6 @@ class FormInputNumberScreen extends React.Component {
 
   handleChange(inputValue) {
     const valueToSendBack = Number(inputValue.toPrecision(4));
-    console.log('FormInputNumberScreen', { inputValue, valueToSendBack });
     this.setState({
       inputValue: valueToSendBack
     });
@@ -24,6 +23,10 @@ class FormInputNumberScreen extends React.Component {
   render() {
     return (
       <div>
+        <FormInputNumber
+          value={this.state.inputValue}
+          onChange={this.handleChange}
+        />
         <FormInputNumber
           value={this.state.inputValue}
           onChange={this.handleChange}

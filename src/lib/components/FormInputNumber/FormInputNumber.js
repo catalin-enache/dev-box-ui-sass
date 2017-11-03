@@ -15,7 +15,12 @@ class FormInputNumber extends React.PureComponent {
   componentWillReceiveProps(nextProps) {
     const receivedValue = nextProps.value.toString();
     const internalValue = this.state.value;
-    const valueToStore = Number(internalValue) === Number(receivedValue) ? internalValue : receivedValue;
+    let valueToStore = Number(internalValue) === Number(receivedValue) ? internalValue : receivedValue;
+
+    if (['-', '+'].includes(internalValue) && receivedValue === '0') {
+      valueToStore = internalValue;
+    }
+
     this.setState({
       value: valueToStore
     });
@@ -27,22 +32,16 @@ class FormInputNumber extends React.PureComponent {
     this.setState({
       value: valueToUse
     }, () => {
-      this.forceUpdate();
+      this.forceUpdate(); // reason: 123.4 => 1234 / 12.3.4 => 1234(no re-render)
 
       const usedValue = this.state.value;
       let valueToReport = usedValue;
-      const endsWithPoint = usedValue.endsWith('.');
 
-      if (endsWithPoint) {
-        valueToReport = valueToReport.substr(0, valueToReport.length - 1);
+      if (['-', '+'].includes(valueToReport)) {
+        valueToReport = 0;
       }
 
       const valueAsNumber = Number(valueToReport);
-      const isNan = Number.isNaN(valueAsNumber);
-
-      if (isNan) {
-        return;
-      }
 
       this.props.onChange(valueAsNumber);
     });
