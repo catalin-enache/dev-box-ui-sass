@@ -45,7 +45,7 @@ function forceFloat(value) {
 }
 
 /* eslint prefer-const: 0 */
-function numberFormatter(value, { decPoint = '.', thousandsSeparator = ',' } = {}) {
+const numberFormatter = ({ decPoint = '.', thousandsSeparator = ',' } = {}) => value => {
   let firstChar = value[0] || '';
   firstChar = ['+', '-'].includes(firstChar) ? firstChar : '';
   const isFloatingPoint = value.indexOf(decPoint) !== -1;
@@ -54,7 +54,7 @@ function numberFormatter(value, { decPoint = '.', thousandsSeparator = ',' } = {
   integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, thousandsSeparator);
   const ret = `${firstChar}${integerPart}${isFloatingPoint ? decPoint : ''}${decimals}`;
   return ret;
-}
+};
 
 export default {
   forceFloat,

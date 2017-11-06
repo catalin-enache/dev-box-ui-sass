@@ -27,7 +27,7 @@ class FormInputNumber extends React.PureComponent {
   }
 
   handleChange(value) {
-    const valueToUse = this.props.forceFloat(value.replace(/,/g, ''));
+    const valueToUse = this.props.forceFloat(value);
 
     this.setState({
       value: valueToUse
@@ -70,7 +70,7 @@ FormInputNumber.defaultProps = {
   value: 0,
   onChange: () => {},
   forceFloat: formatters.forceFloat,
-  numberFormatter: formatters.numberFormatter
+  numberFormatter: formatters.numberFormatter()
 };
 
 FormInputNumber.propTypes = {
