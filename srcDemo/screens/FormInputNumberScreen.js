@@ -14,7 +14,7 @@ class FormInputNumberScreen extends React.Component {
   }
 
   handleChange(inputValue) {
-    const valueToSendBack = Number(inputValue.toPrecision(4));
+    const valueToSendBack = Number(inputValue.toPrecision(16));
     this.setState({
       inputValue: valueToSendBack
     });

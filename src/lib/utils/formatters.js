@@ -44,4 +44,20 @@ function forceFloat(value) {
   return valueToUse;
 }
 
-export default forceFloat;
+/* eslint prefer-const: 0 */
+function numberFormatter(value, { decPoint = '.', thousandsSeparator = ',' } = {}) {
+  let firstChar = value[0] || '';
+  firstChar = ['+', '-'].includes(firstChar) ? firstChar : '';
+  const isFloatingPoint = value.indexOf(decPoint) !== -1;
+  let [integerPart = '', decimals = ''] = value.split(decPoint);
+  integerPart = integerPart.replace(/[+-]/g, '');
+  integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, thousandsSeparator);
+  const ret = `${firstChar}${integerPart}${isFloatingPoint ? decPoint : ''}${decimals}`;
+  return ret;
+}
+
+export default {
+  forceFloat,
+  numberFormatter
+};
+

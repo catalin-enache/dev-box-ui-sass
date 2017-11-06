@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FormInput from '../FormInput/FormInput';
-import forceFloat from '../../utils/internals/forceFloat';
+import formatters from '../../utils/formatters';
 
 class FormInputNumber extends React.PureComponent {
   constructor(props) {
@@ -27,7 +27,7 @@ class FormInputNumber extends React.PureComponent {
   }
 
   handleChange(value) {
-    const valueToUse = forceFloat(value);
+    const valueToUse = this.props.forceFloat(value.replace(/,/g, ''));
 
     this.setState({
       value: valueToUse
@@ -48,13 +48,16 @@ class FormInputNumber extends React.PureComponent {
   }
 
   get value() {
-    return this.state.value;
+    return this.props.numberFormatter ?
+      this.props.numberFormatter(this.state.value) :
+      this.state.value;
   }
 
   render() {
+    const { numberFormatter, forceFloat, ...rest } = this.props;
     return (
       <FormInput
-        {...this.props}
+        {...rest}
         type="text"
         value={this.value}
         onChange={this.handleChange}
@@ -65,12 +68,16 @@ class FormInputNumber extends React.PureComponent {
 
 FormInputNumber.defaultProps = {
   value: 0,
-  onChange: () => {}
+  onChange: () => {},
+  forceFloat: formatters.forceFloat,
+  numberFormatter: formatters.numberFormatter
 };
 
 FormInputNumber.propTypes = {
   value: PropTypes.number,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  forceFloat: PropTypes.func,
+  numberFormatter: PropTypes.func
 };
 
 export default FormInputNumber;

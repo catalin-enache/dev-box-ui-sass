@@ -1,6 +1,7 @@
 // Utils
 import template from './utils/template';
 import onScreenConsole from './utils/onScreenConsole';
+import formatters from './utils/formatters';
 
 // Services
 import localeService from './services/LocaleService';
@@ -20,6 +21,7 @@ export {
   // Utils
   template,
   onScreenConsole,
+  formatters,
 
   // Services
   localeService,
