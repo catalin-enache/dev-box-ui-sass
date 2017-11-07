@@ -8,7 +8,7 @@ class FormInputNumberScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputValue: 7
+      inputValue: -7.08
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -26,6 +26,8 @@ class FormInputNumberScreen extends React.Component {
         <FormInputNumber
           value={this.state.inputValue}
           onChange={this.handleChange}
+          defaultDecPoint=","
+          defaultThousandsSeparator=" "
         />
         <FormInputNumber
           value={this.state.inputValue}

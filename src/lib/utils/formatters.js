@@ -1,7 +1,9 @@
+/* eslint prefer-const: 0 */
+
 /**
  *
- * @param value String
- * @returns String
+ * @param options Object
+ * @returns function(String): String
  */
 const forceFloat = ({ decPoint = '.' } = {}) => (value) => {
   const GLOBAL_DEC_POINT = new RegExp(`\\${decPoint}`, 'g');
@@ -47,16 +49,21 @@ const forceFloat = ({ decPoint = '.' } = {}) => (value) => {
 
   if (lastChar.match(SHORTCUT)) {
     valueToUse = (
-      Number(`${firstChar}${middleChars}`) *
+      Number(`${firstChar}${middleChars}`.replace(decPoint, '.')) *
       (lastChar.match(SHORTCUT_THOUSANDS) ? 1000 : 1000000)
-    ).toString();
+    ).toString().replace('.', decPoint);
   }
 
   return valueToUse;
-}
+};
 
-/* eslint prefer-const: 0 */
+/**
+ *
+ * @param options Object
+ * @returns function(String): String
+ */
 const numberFormatter = ({ decPoint = '.', thousandsSeparator = ',' } = {}) => value => {
+  value = value.replace('.', decPoint);
   let firstChar = value[0] || '';
   firstChar = ['+', '-'].includes(firstChar) ? firstChar : '';
   const isFloatingPoint = value.indexOf(decPoint) !== -1;

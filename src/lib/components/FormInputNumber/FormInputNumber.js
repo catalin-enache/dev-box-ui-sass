@@ -6,16 +6,29 @@ import formatters from '../../utils/formatters';
 class FormInputNumber extends React.PureComponent {
   constructor(props) {
     super(props);
+    const { value, defaultDecPoint, defaultThousandsSeparator } = props;
     this.state = {
-      value: props.value.toString()
+      value: value.toString()
     };
+
+    this.defaultDecPoint = defaultDecPoint;
+    this.defaultThousandsSeparator = defaultThousandsSeparator;
+    this.numberFormatter = formatters.numberFormatter({
+      decPoint: defaultDecPoint,
+      thousandsSeparator: defaultThousandsSeparator
+    });
+    this.forceFloat = formatters.forceFloat({
+      decPoint: defaultDecPoint
+    });
+
     this.handleChange = this.handleChange.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     const receivedValue = nextProps.value.toString();
     const internalValue = this.state.value;
-    let valueToStore = Number(internalValue) === Number(receivedValue) ? internalValue : receivedValue;
+    const internalValueNumber = internalValue.replace(this.defaultDecPoint, '.');
+    let valueToStore = Number(internalValueNumber) === Number(receivedValue) ? internalValue : receivedValue;
 
     if (['-', '+'].includes(internalValue) && receivedValue === '0') {
       valueToStore = internalValue;
@@ -27,7 +40,7 @@ class FormInputNumber extends React.PureComponent {
   }
 
   handleChange(value) {
-    const valueToUse = this.props.forceFloat(value);
+    const valueToUse = this.forceFloat(value);
 
     this.setState({
       value: valueToUse
@@ -35,10 +48,10 @@ class FormInputNumber extends React.PureComponent {
       this.forceUpdate(); // reason: 123.4 => 1234 / 12.3.4 => 1234(no re-render)
 
       const usedValue = this.state.value;
-      let valueToReport = usedValue;
+      let valueToReport = usedValue.replace(this.defaultDecPoint, '.');
 
       if (['-', '+'].includes(valueToReport)) {
-        valueToReport = 0;
+        valueToReport = '0';
       }
 
       const valueAsNumber = Number(valueToReport);
@@ -48,13 +61,11 @@ class FormInputNumber extends React.PureComponent {
   }
 
   get value() {
-    return this.props.numberFormatter ?
-      this.props.numberFormatter(this.state.value) :
-      this.state.value;
+    return this.numberFormatter(this.state.value);
   }
 
   render() {
-    const { numberFormatter, forceFloat, ...rest } = this.props;
+    const { defaultDecPoint, defaultThousandsSeparator, ...rest } = this.props;
     return (
       <FormInput
         {...rest}
@@ -69,15 +80,15 @@ class FormInputNumber extends React.PureComponent {
 FormInputNumber.defaultProps = {
   value: 0,
   onChange: () => {},
-  forceFloat: formatters.forceFloat({ decPoint: '.' }),
-  numberFormatter: formatters.numberFormatter({ decPoint: '.', thousandsSeparator: ',' })
+  defaultDecPoint: '.',
+  defaultThousandsSeparator: ''
 };
 
 FormInputNumber.propTypes = {
   value: PropTypes.number,
   onChange: PropTypes.func,
-  forceFloat: PropTypes.func,
-  numberFormatter: PropTypes.func
+  defaultDecPoint: PropTypes.string,
+  defaultThousandsSeparator: PropTypes.string
 };
 
 export default FormInputNumber;
