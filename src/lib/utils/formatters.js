@@ -3,42 +3,53 @@
  * @param value String
  * @returns String
  */
-function forceFloat(value) {
+const forceFloat = ({ decPoint = '.' } = {}) => (value) => {
+  const GLOBAL_DEC_POINT = new RegExp(`\\${decPoint}`, 'g');
+  const GLOBAL_NON_NUMBER_OR_DEC_POINT = new RegExp(`[^\\d${decPoint}]`, 'g');
+  const NUMBER_DEC_POINT_OR_SHORTCUT = new RegExp(`[\\d${decPoint}KkMm]`, '');
+  const NUMBER_OR_SIGN = new RegExp('[\\d+-]', '');
+  const SIGN = new RegExp('[+-]', '');
+  const SHORTCUT = new RegExp('[KkMm]', '');
+  const SHORTCUT_THOUSANDS = new RegExp('[Kk]', '');
+
   let valueToUse = value;
-  const indexOfPoint = valueToUse.indexOf('.');
-  const lastIndexOfPoint = valueToUse.lastIndexOf('.');
+  const indexOfPoint = valueToUse.indexOf(decPoint);
+  const lastIndexOfPoint = valueToUse.lastIndexOf(decPoint);
   const hasMoreThanOnePoint = indexOfPoint !== lastIndexOfPoint;
 
   if (hasMoreThanOnePoint) {
-    valueToUse = `${valueToUse.replace(/\./g, '')}.`;
+    valueToUse = `${valueToUse.replace(GLOBAL_DEC_POINT, '')}${decPoint}`;
   }
 
   let firstChar = valueToUse[0] || '';
   let lastChar = (valueToUse.length > 1 ? valueToUse[valueToUse.length - 1] : '') || '';
   let middleChars = valueToUse.substr(1, valueToUse.length - 2) || '';
 
-  if (!firstChar.match(/[\d+-]/)) {
+  if (!firstChar.match(NUMBER_OR_SIGN)) {
     firstChar = '';
   }
 
-  middleChars = middleChars.replace(/[^\d.]/g, '');
+  middleChars = middleChars.replace(GLOBAL_NON_NUMBER_OR_DEC_POINT, '');
 
-  if (!lastChar.match(/[\d.KkMm]/)) {
+  if (!lastChar.match(NUMBER_DEC_POINT_OR_SHORTCUT)) {
     lastChar = '';
-  } else if (lastChar.match(/[KkMm]/)) {
-    if (middleChars === '.') {
+  } else if (lastChar.match(SHORTCUT)) {
+    if (middleChars === decPoint) {
       middleChars = '';
-    } else if (middleChars === '' && ['+', '-'].includes(firstChar)) {
+    } else if (middleChars === '' && firstChar.match(SIGN)) {
       lastChar = '';
     }
-  } else if (lastChar === '.' && middleChars === '' && ['+', '-'].includes(firstChar)) {
+  } else if (lastChar === decPoint && middleChars === '' && firstChar.match(SIGN)) {
     lastChar = '';
   }
 
   valueToUse = [firstChar, middleChars, lastChar].join('');
 
-  if (lastChar.match(/[KkMm]/)) {
-    valueToUse = (Number(`${firstChar}${middleChars}`) * (lastChar.match(/[Kk]/) ? 1000 : 1000000)).toString();
+  if (lastChar.match(SHORTCUT)) {
+    valueToUse = (
+      Number(`${firstChar}${middleChars}`) *
+      (lastChar.match(SHORTCUT_THOUSANDS) ? 1000 : 1000000)
+    ).toString();
   }
 
   return valueToUse;

@@ -69,8 +69,8 @@ class FormInputNumber extends React.PureComponent {
 FormInputNumber.defaultProps = {
   value: 0,
   onChange: () => {},
-  forceFloat: formatters.forceFloat,
-  numberFormatter: formatters.numberFormatter()
+  forceFloat: formatters.forceFloat({ decPoint: '.' }),
+  numberFormatter: formatters.numberFormatter({ decPoint: '.', thousandsSeparator: ',' })
 };
 
 FormInputNumber.propTypes = {
