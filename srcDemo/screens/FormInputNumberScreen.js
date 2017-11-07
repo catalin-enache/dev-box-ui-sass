@@ -27,7 +27,7 @@ class FormInputNumberScreen extends React.Component {
           value={this.state.inputValue}
           onChange={this.handleChange}
           defaultDecPoint=","
-          defaultThousandsSeparator=" "
+          defaultThousandsSeparator="."
         />
         <FormInputNumber
           value={this.state.inputValue}
