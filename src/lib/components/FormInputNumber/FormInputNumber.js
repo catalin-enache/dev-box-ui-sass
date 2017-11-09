@@ -69,6 +69,7 @@ class FormInputNumber extends React.PureComponent {
     return (
       <FormInput
         {...rest}
+        data-component-id="FormInputNumber"
         type="text"
         value={this.value}
         onChange={this.handleChange}

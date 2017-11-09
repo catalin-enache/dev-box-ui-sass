@@ -9,6 +9,8 @@ class FormInput extends React.PureComponent {
       value: props.value.toString()
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -24,6 +26,14 @@ class FormInput extends React.PureComponent {
     }, () => {
       this.props.onChange(value);
     });
+  }
+
+  handleFocus() {
+    this.props.onFocus(this.state.value);
+  }
+
+  handleBlur() {
+    this.props.onBlur(this.state.value);
   }
 
   render() {
@@ -42,6 +52,8 @@ class FormInput extends React.PureComponent {
         {...rest}
         value={this.state.value}
         onChange={this.handleChange}
+        onFocus={this.handleFocus}
+        onBlur={this.handleBlur}
       />
     );
   }
@@ -50,7 +62,9 @@ class FormInput extends React.PureComponent {
 FormInput.defaultProps = {
   type: 'text',
   value: '',
-  onChange: () => {}
+  onChange: () => {},
+  onFocus: () => {},
+  onBlur: () => {},
 };
 
 FormInput.propTypes = {
@@ -60,6 +74,8 @@ FormInput.propTypes = {
     PropTypes.number
   ]),
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
   hasWarning: PropTypes.bool,
   hasError: PropTypes.bool,
 };

@@ -16,7 +16,6 @@
             "**/src/lib/styles/**",
             "**/src/lib/theming/**",
             "**/src/lib/index.js",
-            "**/src/lib/components/**",
             "**/test/**"
           ]
         }]
