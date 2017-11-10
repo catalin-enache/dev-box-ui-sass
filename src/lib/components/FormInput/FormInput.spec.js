@@ -9,7 +9,7 @@ import FormInput from './FormInput';
 /* eslint react/no-find-dom-node: 0 */
 
 describe('FormInput', () => {
-  it('renders FormInput', (done) => {
+  it('renders FormInput and triggers interaction events', (done) => {
     const valueToSet = 'changed value';
     let [valueOnChange, valueOnFocus, valueOnBlur] = [null, null, null];
 
@@ -37,7 +37,6 @@ describe('FormInput', () => {
         expect(valueOnBlur).to.equal(valueToSet);
 
         setTimeout(() => {
-          ReactDOM.unmountComponentAtNode(document.querySelector('#testing'));
           done();
         }, 0);
       }, 0);
@@ -76,7 +75,6 @@ describe('FormInput', () => {
       );
 
       setTimeout(() => {
-        ReactDOM.unmountComponentAtNode(document.querySelector('#testing'));
         done();
       }, 0);
     }
@@ -107,7 +105,6 @@ describe('FormInput', () => {
           expect(htmlNode.value).to.equal('changedValue');
 
           setTimeout(() => {
-            ReactDOM.unmountComponentAtNode(document.querySelector('#testing'));
             done();
           }, 0);
         });

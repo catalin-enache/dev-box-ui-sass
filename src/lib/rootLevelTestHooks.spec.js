@@ -1,3 +1,4 @@
+import ReactDOM from 'react-dom';
 import { beforeEach, afterEach } from 'mocha';
 import { expect } from 'chai';
 import localeService from './services/LocaleService';
@@ -19,6 +20,7 @@ afterEach(function () {
   expect(console.log).to.equal(consoleLog);
   const testDiv = document.querySelector('#testing');
   if (document.body.contains(testDiv)) {
+    ReactDOM.unmountComponentAtNode(testDiv);
     document.body.removeChild(testDiv);
   }
 });
