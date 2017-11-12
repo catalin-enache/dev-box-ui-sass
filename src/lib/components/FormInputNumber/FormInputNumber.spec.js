@@ -60,6 +60,7 @@ App.propTypes = {
   initialValue: PropTypes.number,
   expectedInitialValue: PropTypes.string,
   newValue: PropTypes.number,
+  simulateChange: PropTypes.func,
   expectedNewValue: PropTypes.string,
   defaultDecPoint: PropTypes.string,
   defaultThousandsSeparator: PropTypes.string
@@ -70,8 +71,8 @@ describe('FormInput', () => {
     ReactDOM.render(
       <App
         done={done}
-        initialValue={1234.567}
-        expectedInitialValue={'1234.567'}
+        initialValue={-1234.567}
+        expectedInitialValue={'-1234.567'}
         newValue={1000.001}
         expectedNewValue={'1000.001'}
       />
@@ -97,8 +98,8 @@ describe('FormInput', () => {
         done={done}
         initialValue={1000}
         expectedInitialValue={'1 000'}
-        newValue={1000.001}
-        expectedNewValue={'1 000,001'}
+        newValue={-1000.001}
+        expectedNewValue={'-1 000,001'}
         defaultThousandsSeparator=" "
         defaultDecPoint=","
       />
