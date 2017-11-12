@@ -3,6 +3,9 @@ import { beforeEach, afterEach } from 'mocha';
 import { expect } from 'chai';
 import localeService from './services/LocaleService';
 
+/* eslint no-console: 0 */
+/* eslint func-names: 0 */
+
 let localeServiceCallbacksLength = 0;
 const consoleLog = console.log;
 
