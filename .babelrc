@@ -12,11 +12,12 @@
       "plugins": [
         ["istanbul", {
           "exclude": [
+            "**/test/**",
             "**/*.spec.js",
             "**/src/lib/styles/**",
             "**/src/lib/theming/**",
             "**/src/lib/index.js",
-            "**/test/**"
+            "**/src/lib/utils/onScreenConsole.js"
           ]
         }]
       ]
