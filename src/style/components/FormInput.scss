@@ -29,6 +29,8 @@
   -moz-appearance: none;
   appearance: none;
 
+  unicode-bidi: bidi-override;
+
   &:focus {
     color: $form-input-focus-text-color;
     background-color: $form-input-focus-background-color;

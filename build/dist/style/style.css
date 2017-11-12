@@ -26,7 +26,8 @@ html[dir=ltr] .dbu-form-input {
   box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none; }
+  appearance: none;
+  unicode-bidi: bidi-override; }
   html[dir=ltr] .dbu-form-input:focus {
     color: #333;
     background-color: #fff;
@@ -72,7 +73,8 @@ html[dir=rtl] .dbu-form-input {
   box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none; }
+  appearance: none;
+  unicode-bidi: bidi-override; }
   html[dir=rtl] .dbu-form-input:focus {
     color: #333;
     background-color: #fff;
