@@ -7,7 +7,7 @@ import {
 } from 'dev-box-ui';
 import App from './app';
 
-// onScreenConsole();
+// onScreenConsole({ options: { showLastOnly: false } });
 
 let Demo = class Demo extends React.Component {
   render() {

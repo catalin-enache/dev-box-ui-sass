@@ -1,3 +1,6 @@
+html[dir=ltr] html, html[dir=ltr] * {
+  -webkit-tap-highlight-color: transparent; }
+
 html[dir=ltr] .dbu-form-input {
   display: inline;
   width: 100%;
@@ -44,6 +47,9 @@ html[dir=ltr] .dbu-form-input {
     color: #af0000;
     background-color: #fff;
     border-color: #af0000; }
+
+html[dir=rtl] html, html[dir=rtl] * {
+  -webkit-tap-highlight-color: transparent; }
 
 html[dir=rtl] .dbu-form-input {
   display: inline;

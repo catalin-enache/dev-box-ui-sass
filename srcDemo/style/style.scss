@@ -5,6 +5,7 @@ $secondary-color: maroon;
 $dir: ltr;
 html[dir=#{$dir}] {
   @import "../../src/style/setup";
+  @import "../../src/style/utils/browsers_overrides";
   @import "../../src/style/components/FormInput";
   @import "patches";
 }
@@ -13,6 +14,7 @@ html[dir=#{$dir}] {
 $dir: rtl;
 html[dir=#{$dir}] {
   @import "../../src/style/setup";
+  @import "../../src/style/utils/browsers_overrides";
   @import "../../src/style/components/FormInput";
   @import "patches";
 }
