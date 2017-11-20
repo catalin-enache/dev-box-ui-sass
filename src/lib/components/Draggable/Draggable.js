@@ -48,30 +48,34 @@ class Draggable extends React.PureComponent {
     this.node = node;
   }
 
+  registerEvents(type) {
+    Object.keys(this.events[type]).forEach((event) => {
+      document.addEventListener(event, this.events[type][event], true);
+    });
+  }
+
+  unregisterEvents(type) {
+    Object.keys(this.events[type]).forEach((event) => {
+      document.removeEventListener(event, this.events[type][event], true);
+    });
+  }
+
   handleMouseDown(evt) {
     this.measurements = getMeasurements(this.node, evt);
-    Object.keys(this.events.mouse).forEach((event) => {
-      document.addEventListener(event, this.events.mouse[event], true);
-    });
+    this.registerEvents('mouse');
   }
 
   handleTouchStart(evt) {
     this.measurements = getMeasurements(this.node, evt.touches[0]);
-    Object.keys(this.events.touch).forEach((event) => {
-      document.addEventListener(event, this.events.touch[event], true);
-    });
+    this.registerEvents('touch');
   }
 
   handleMouseUp() {
-    Object.keys(this.events.mouse).forEach((event) => {
-      document.removeEventListener(event, this.events.mouse[event], true);
-    });
+    this.unregisterEvents('mouse');
   }
 
   handleTouchEnd() {
-    Object.keys(this.events.touch).forEach((event) => {
-      document.removeEventListener(event, this.events.touch[event], true);
-    });
+    this.unregisterEvents('touch');
   }
 
   handleMouseMove(evt) {
@@ -101,6 +105,11 @@ class Draggable extends React.PureComponent {
       this.forceUpdate();
       this._dragRunning = false;
     });
+  }
+
+  componentWillUnmount() {
+    this.unregisterEvents('mouse');
+    this.unregisterEvents('touch');
   }
 
   render() {
