@@ -13,6 +13,7 @@
         ["istanbul", {
           "exclude": [
             "**/test/**",
+            "**/testUtils/**",
             "**/*.spec.js",
             "**/src/lib/styles/**",
             "**/src/lib/theming/**",

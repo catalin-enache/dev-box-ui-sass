@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import DisableSelection from '../../components/DisableSelection/DisableSelection';
 
 function getMeasurements(node, evt) {
@@ -92,6 +93,11 @@ class Draggable extends React.PureComponent {
     if (this._dragRunning) { return; }
     this._dragRunning = true;
     requestAnimationFrame(() => {
+      if (!this.node) { // might be unmounted meanwhile
+        this._dragRunning = false;
+        return;
+      }
+
       const {
         startX, startY, transformX, transformY
       } = this.measurements;
@@ -114,10 +120,15 @@ class Draggable extends React.PureComponent {
 
   render() {
     const { style } = this.props;
+    const draggableClassNames = cn({
+      'dbu-draggable': true
+    });
 
     return (
       <div
         ref={this.captureNode}
+        data-component-id="Draggable"
+        className={draggableClassNames}
         onMouseDownCapture={this.handleMouseDown}
         onTouchStartCapture={this.handleTouchStart}
         style={{
