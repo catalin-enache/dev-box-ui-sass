@@ -40,10 +40,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _I18nService2.default.registerTranslations({
   en: {
-    'Hello': _template2.default`Hello ${'age'} ${'name'}`
+    Hello: _template2.default`Hello ${'age'} ${'name'}`
   },
   sp: {
-    'Hello': _template2.default`Hola ${'age'} ${'name'}`
+    Hello: _template2.default`Hola ${'age'} ${'name'}`
   }
 });
 

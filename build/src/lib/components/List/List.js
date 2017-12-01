@@ -28,10 +28,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _I18nService2.default.registerTranslations({
   en: {
-    'list': _template2.default`list`
+    list: _template2.default`list`
   },
   sp: {
-    'list': _template2.default`lista`
+    list: _template2.default`lista`
   }
 });
 
@@ -63,7 +63,8 @@ List.defaultProps = {
 };
 
 List.propTypes = {
-  items: _propTypes2.default.array
+  items: _propTypes2.default.array,
+  translations: _propTypes2.default.object
 };
 
 exports.default = (0, _localeAware2.default)(List);

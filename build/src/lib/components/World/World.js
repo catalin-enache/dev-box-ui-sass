@@ -8,10 +8,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _List = require('../List/List');
 
 var _List2 = _interopRequireDefault(_List);
@@ -34,6 +30,8 @@ class World extends _react2.default.PureComponent {
     );
   }
 }
+// import PropTypes from 'prop-types';
+
 
 World.propTypes = {};
 

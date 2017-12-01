@@ -7,6 +7,14 @@ import {
 } from 'dev-box-ui';
 import App from './app';
 
+import DBUWebComponent from '../build/src/lib/webcomponents/DBUWebComponent/DBUWebComponent';
+// import DBUWebComponent from '../src/lib/webcomponents/DBUWebComponent/DBUWebComponent';
+
+setTimeout(() => {
+  customElements.define('dbu-web-component', DBUWebComponent);
+}, 2000);
+
+
 // onScreenConsole({ options: { showLastOnly: false } });
 
 let Demo = class Demo extends React.Component {
