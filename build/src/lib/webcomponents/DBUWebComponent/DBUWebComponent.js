@@ -4,7 +4,21 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-class DBUWebComponent extends HTMLElement {
+var _DBUWebComponentBase = require('../DBUWebComponentBase/DBUWebComponentBase');
+
+var _DBUWebComponentBase2 = _interopRequireDefault(_DBUWebComponentBase);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+class DBUWebComponent extends _DBUWebComponentBase2.default {
+  static get componentName() {
+    return 'dbu-web-component';
+  }
+
+  static registerSelf() {
+    super.registerSelf(DBUWebComponent);
+  }
+
   constructor() {
     super();
     const shadowRoot = this.attachShadow({ mode: 'open' });
@@ -16,7 +30,5 @@ class DBUWebComponent extends HTMLElement {
     `;
   }
 }
-
-console.log('defining DBUWebComponent');
 
 exports.default = DBUWebComponent;

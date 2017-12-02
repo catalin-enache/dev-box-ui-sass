@@ -1,6 +1,13 @@
 html[dir=ltr] html, html[dir=ltr] * {
   -webkit-tap-highlight-color: transparent; }
 
+html[dir=ltr] *:defined {
+  transition: opacity 1s; }
+
+html[dir=ltr] *:not(:defined) {
+  visibility: hidden;
+  opacity: 0; }
+
 html[dir=ltr] .dbu-form-input {
   display: inline;
   width: 100%;
@@ -50,6 +57,13 @@ html[dir=ltr] .dbu-form-input {
 
 html[dir=rtl] html, html[dir=rtl] * {
   -webkit-tap-highlight-color: transparent; }
+
+html[dir=rtl] *:defined {
+  transition: opacity 1s; }
+
+html[dir=rtl] *:not(:defined) {
+  visibility: hidden;
+  opacity: 0; }
 
 html[dir=rtl] .dbu-form-input {
   display: inline;

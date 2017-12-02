@@ -7,11 +7,19 @@ import {
 } from 'dev-box-ui';
 import App from './app';
 
-import DBUWebComponent from '../build/src/lib/webcomponents/DBUWebComponent/DBUWebComponent';
-// import DBUWebComponent from '../src/lib/webcomponents/DBUWebComponent/DBUWebComponent';
+// import DBUWebComponent from '../build/src/lib/webcomponents/DBUWebComponent/DBUWebComponent';
+import DBUWebComponent from '../src/lib/webcomponents/DBUWebComponent/DBUWebComponent';
+
+// DBUWebComponent.componentStyle += `
+//   b {
+//     color: orange;
+//     font-style: oblique;
+//     text-shadow: var(--b-text-shadow, 2px 2px 2px #000000);
+//   }
+// `;
 
 setTimeout(() => {
-  customElements.define('dbu-web-component', DBUWebComponent);
+  DBUWebComponent.registerSelf();
 }, 2000);
 
 

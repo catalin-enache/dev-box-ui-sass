@@ -1,18 +1,31 @@
 
-class DBUWebComponent extends HTMLElement {
-  constructor() {
-    super();
-    const shadowRoot = this.attachShadow({ mode: 'open' });
-    shadowRoot.innerHTML = `
-      <style>
-      
-      </style>
-      <div id="DBUWebComponent">DBUWebComponent</div>
-    `;
+import DBUWebComponentBase, {
+  defineCommonStaticMethods
+} from '../DBUWebComponentBase/DBUWebComponentBase';
+
+const template = document.createElement('template');
+template.innerHTML = `
+  <style>
+  :host {
+    display: block;
+    color: maroon;
+  }
+  </style>
+  <b>I'm in shadow dom!</b>
+  <slot></slot>
+`;
+
+class DBUWebComponent extends DBUWebComponentBase {
+  static get componentName() {
+    return 'dbu-web-component';
+  }
+
+  static get template() {
+    return template;
   }
 }
 
-console.log('defining DBUWebComponent')
 
+defineCommonStaticMethods(DBUWebComponent);
 
 export default DBUWebComponent;
