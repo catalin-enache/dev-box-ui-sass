@@ -17,6 +17,7 @@ class DBUWebComponentScreen extends React.Component {
         >
           <span>hello world 2</span>
         </dbu-web-component>
+        <dbu-web-component-parent></dbu-web-component-parent>
 
       </div>
     );

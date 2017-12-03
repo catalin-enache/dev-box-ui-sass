@@ -7,20 +7,65 @@ import {
 } from 'dev-box-ui';
 import App from './app';
 
-// import DBUWebComponent from '../build/src/lib/webcomponents/DBUWebComponent/DBUWebComponent';
-import DBUWebComponent from '../src/lib/webcomponents/DBUWebComponent/DBUWebComponent';
+// import getDBUWebComponent from '../build/src/lib/webcomponents/DBUWebComponent/DBUWebComponent';
+// import getDBUWebComponentParent from '../build/src/lib/webcomponents/DBUWebComponentParent/DBUWebComponentParent';
+import getDBUWebComponent from '../src/lib/webcomponents/DBUWebComponent/DBUWebComponent';
+import getDBUWebComponentParent from '../src/lib/webcomponents/DBUWebComponentParent/DBUWebComponentParent';
 
-// DBUWebComponent.componentStyle += `
-//   b {
-//     color: orange;
-//     font-style: oblique;
-//     text-shadow: var(--b-text-shadow, 2px 2px 2px #000000);
-//   }
-// `;
+const DBUWebComponent = getDBUWebComponent(window);
+const DBUWebComponentParent = getDBUWebComponentParent(window);
+
+DBUWebComponent.componentStyle += `
+  b {
+    color: orange;
+    font-style: oblique;
+  }
+`;
 
 setTimeout(() => {
   DBUWebComponent.registerSelf();
+  DBUWebComponentParent.registerSelf();
 }, 2000);
+
+const iframe = document.createElement('iframe');
+
+window.onmessage = function (msg) { console.log('msg from iframe', msg); };
+iframe.onload = function (evt) {
+  const target = evt.target;
+
+  target.contentWindow.document.write(`
+    <html>
+    <body>
+      <dbu-web-component
+        style="color: blue"
+      >
+        <span>hello world 3</span>
+      </dbu-web-component>
+      <dbu-web-component-parent></dbu-web-component-parent>
+    </body>
+    <script>
+      window.onmessage = function (msg) {
+        console.log('msg from window', msg);
+        window.top.postMessage('world', '*');
+      };
+    </script>
+    </html>
+  `);
+  target.contentWindow.postMessage('hello', '*')
+
+  const DBUWebComponent2 = getDBUWebComponent(target.contentWindow);
+  const DBUWebComponentParent2 = getDBUWebComponentParent(target.contentWindow);
+  setTimeout(() => {
+    DBUWebComponent2.registerSelf();
+    DBUWebComponentParent2.registerSelf();
+
+    setTimeout(() => {
+      // target.remove();
+    }, 2000);
+  }, 2000);
+};
+
+document.body.appendChild(iframe);
 
 
 // onScreenConsole({ options: { showLastOnly: false } });
